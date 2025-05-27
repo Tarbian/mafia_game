@@ -5,3 +5,4 @@ abstract class MockDao {
 
   Future<List<Mafiosnic>> getMafiosnics();
 }
+ 

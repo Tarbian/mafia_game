@@ -80,7 +80,7 @@ class GameMenu {
 
   Future _handleCheckTeam() async {
     print('\n👥 [Команда]:');
-    await presenter.showNews();
+    presenter.showMafiosnicList();
     print('');
   }
 
