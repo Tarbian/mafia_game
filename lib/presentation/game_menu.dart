@@ -92,8 +92,10 @@ class GameMenu {
     print('\n🤝 [Найм мафіозніка] — функціонал у розробці...\n');
   }
 
-  void _handleViewMap() {
-    print('\n🗺 [Мапа міста] — функціонал у розробці...\n');
+  Future _handleViewMap() async {
+    print('\n🗺 [Мапа міста]:');
+    presenter.showCityMap();
+    print('');
   }
 
   void _handleNextDay() {
