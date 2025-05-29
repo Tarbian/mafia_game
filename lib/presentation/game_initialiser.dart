@@ -3,12 +3,19 @@ import 'package:Tests/data/dao/ai/ai_dao/ai_dao_impl.dart';
 import 'package:Tests/data/dao/ai/generator/death_quote_generator.dart';
 import 'package:Tests/data/dao/mock/mock_dao.dart';
 import 'package:Tests/data/dao/mock/mock_dao_impl.dart';
+import 'package:Tests/data/dao/mock_map/mock_city_map_dao.dart';
+import 'package:Tests/data/dao/mock_map/mock_city_map_dao_impl.dart';
+import 'package:Tests/data/repository/city_map_repository/city_map_repository.dart';
+import 'package:Tests/data/repository/city_map_repository/city_map_repository_impl.dart';
 import 'package:Tests/data/repository/city_repository/city_repository.dart';
 import 'package:Tests/data/repository/city_repository/city_repository_impl.dart';
 import 'package:Tests/data/repository/mafiosnics_repository/mafiosnics_repository.dart';
 import 'package:Tests/data/repository/mafiosnics_repository/mafiosnics_repository_impl.dart';
 import 'package:Tests/domain/use_cases/get_all_mafiosnics_use_case.dart';
 import 'package:Tests/domain/use_cases/get_news_use_case.dart';
+import 'package:Tests/domain/use_cases/get_city_map_use_case.dart';
+
+
 import 'game_presenter.dart';
 
 class GameInitialiser {
@@ -20,13 +27,17 @@ class GameInitialiser {
     DeathQuoteGenerator deathQuoteGenerator = DeathQuoteGenerator();
 
     MockDao mockDao = MockDaoImpl();
-    MafiosnicsRepository mafiosnicsRepository =
-        MafiosnicsRepositoryImpl(mockDao, deathQuoteGenerator);
-    GetAllMafiosnicsUseCase getAllMafiosnicsUseCase =
-        GetAllMafiosnicsUseCase(mafiosnicsRepository);
-    
+    MafiosnicsRepository mafiosnicsRepository = MafiosnicsRepositoryImpl(mockDao, deathQuoteGenerator);
+    GetAllMafiosnicsUseCase getAllMafiosnicsUseCase = GetAllMafiosnicsUseCase(mafiosnicsRepository);
+
+    CityMapDao cityMapDao = CityMapDaoImpl();
+    CityMapRepository cityMapRepository = CityMapRepositoryImpl(cityMapDao);
+    GetCityMapUseCase getCityMapUseCase = GetCityMapUseCase(cityMapRepository);
+
     return GamePresenter(
-        getNewsUseCase: getNewsUseCase,
-        getAllMafiosnicsUseCase: getAllMafiosnicsUseCase);
+      getNewsUseCase: getNewsUseCase,
+      getAllMafiosnicsUseCase: getAllMafiosnicsUseCase,
+      getCityMapUseCase: getCityMapUseCase,
+    );
   }
 }
