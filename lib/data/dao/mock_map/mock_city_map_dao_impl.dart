@@ -10,26 +10,41 @@ class CityMapDaoImpl extends CityMapDao {
         District(
           name: 'Bronx',
           businesses: [
-            Business(name: 'Bronx Bank', type: BusinessType.bar, baseIncome: 200),
-            Business(name: 'Bronx Auto', type: BusinessType.autoservice, baseIncome: 300),
+            Business(
+                name: 'Bronx Bank', type: BusinessType.bar, baseIncome: 200),
+            Business(
+                name: 'Bronx Auto',
+                type: BusinessType.autoservice,
+                baseIncome: 300),
           ],
         ),
         District(
           name: 'Downtown',
           businesses: [
-            Business(name: 'Downtown Casino', type: BusinessType.casino, baseIncome: 500),
-            Business(name: 'Downtown Club', type: BusinessType.club, baseIncome: 350),
+            Business(
+                name: 'Downtown Casino',
+                type: BusinessType.casino,
+                baseIncome: 500),
+            Business(
+                name: 'Downtown Club',
+                type: BusinessType.club,
+                baseIncome: 350),
           ],
         ),
         District(
           name: 'Industrial zone',
           businesses: [
-            Business(name: 'Industrial Warehouse', type: BusinessType.warehouse, baseIncome: 400),
-            Business(name: 'Industrial Bar', type: BusinessType.bank, baseIncome: 600),
+            Business(
+                name: 'Industrial Warehouse',
+                type: BusinessType.warehouse,
+                baseIncome: 400),
+            Business(
+                name: 'Industrial Bar',
+                type: BusinessType.bank,
+                baseIncome: 600),
           ],
         ),
       ],
     );
   }
 }
-

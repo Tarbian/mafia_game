@@ -38,7 +38,7 @@ class GameMenu {
           _handleHireMember();
           break;
         case '6':
-          _handleViewMap();
+          await _handleViewMap();
           break;
         case '7':
           _handleNextDay();

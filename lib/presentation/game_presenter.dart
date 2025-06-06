@@ -14,7 +14,7 @@ class GamePresenter {
     required this.getCityMapUseCase,
   });
 
-  void showMafiosnicList() async {
+  Future<void> showMafiosnicList() async {
     final mafiosnics = await getAllMafiosnicsUseCase.execute();
     print('=== 👥 Команда мафії ===');
     for (var m in mafiosnics) {
@@ -23,7 +23,7 @@ class GamePresenter {
     }
   }
 
-  void showCityMap() async {
+  Future<void> showCityMap() async {
     final map = await getCityMapUseCase.execute();
     print('=== 🗺 Мапа міста: ${map.cityName} ===');
     for (var district in map.districts) {
